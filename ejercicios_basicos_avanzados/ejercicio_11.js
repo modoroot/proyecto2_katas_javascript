@@ -20,4 +20,4 @@ function averageWord(list) {
     return totalSum / list.length;
 }
 
-console.log(averageWord(mixedElements))
+console.log(averageWord(mixedElements));
