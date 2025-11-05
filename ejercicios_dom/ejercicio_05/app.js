@@ -31,14 +31,25 @@ const albums = [
     }
 ];
 
-const main = document.body.querySelector("main");
-const ul = document.createElement("ul");
-main.appendChild(ul);
-for (const album of albums) {
-    const li = document.createElement("li");
-    li.innerHTML= `<h2>${album.artist} - ${album.title}</h2>
+document.querySelector("#themeBtn").addEventListener("click", (ev) => {
+    document.body.classList.toggle("light");
+    document.body.classList.contains("light") ? ev.target.textContent = "🌙" : ev.target.textContent = "🌞";
+});
+
+const renderAlbums = (albumList) => {
+    const main = document.body.querySelector("main");
+    const ul = document.createElement("ul");
+    main.appendChild(ul);
+    for (const album of albumList) {
+        const li = document.createElement("li");
+        li.innerHTML = `<h2>${album.artist} - ${album.title}</h2>
     <img src="${album.coverUrl}" alt="${album.title} cover">
     <h3>${album.year}</h3>
     `;
-    ul.appendChild(li);
-}
+        ul.appendChild(li);
+    }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+    renderAlbums(albums);
+})
