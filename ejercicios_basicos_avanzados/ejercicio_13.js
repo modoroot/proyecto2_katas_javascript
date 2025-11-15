@@ -16,7 +16,6 @@ const names = [
 function nameFinder(nameList, nameCheck = "") {
     for (const name of nameList) {
         if (name.toLowerCase() === nameCheck.toLowerCase())
-            //podría devolver simplemente un string diciendo true y la posición, pero me da toc
             return [true, `posición ${nameList.indexOf(name)}`];
     }
     return false;
